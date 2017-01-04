@@ -1,20 +1,8 @@
 # Enter your procedural solution here!
 def collect_multiples(limit)
-  sum = []
-  (3...limit).each do |count|
-    if count % 3 == 0 || count % 5 == 0
-      sum << count
-    end
-  end
-  sum
+  (3...limit).find_all {|count| count % 3 == 0 || count % 5 == 0}
 end
 
 def sum_multiples(limit)
-  sum = 0
-  (3...limit).each do |count|
-    if count%3 == 0 || count%5 == 0
-      sum += count
-    end
-  end
-  sum
+  collect_multiples(limit).inject(0, :+)
 end

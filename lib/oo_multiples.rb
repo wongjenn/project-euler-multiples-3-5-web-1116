@@ -7,23 +7,11 @@ class Multiples
   end
 
   def collect_multiples
-    sum = []
-    (3...limit).each do |count|
-      if count % 3 == 0 || count % 5 == 0
-        sum << count
-      end
-    end
-    sum
+    (3...limit).find_all {|count| count % 3 == 0 || count % 5 == 0}
   end
 
   def sum_multiples
-    sum = 0
-    (3...limit).each do |count|
-      if count%3 == 0 || count%5 == 0
-        sum += count
-      end
-    end
-    sum
+    collect_multiples.inject(0, :+)
   end
 
 end
